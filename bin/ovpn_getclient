@@ -104,6 +104,8 @@ tls-auth ta.key 1
     if [ -n "$OVPN_OTP_AUTH" ]; then
         echo reneg-sec 0
     fi
+
+    echo auth-nocache
 }
 
 dir="$OPENVPN/clients/$cn"
