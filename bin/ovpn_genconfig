@@ -339,6 +339,9 @@ status /tmp/openvpn-status.log
 user nobody
 group nogroup
 auth-nocache
+script-security 2
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
 EOF
 
 if [ "${OVPN_DISABLE_PUSH_BLOCK_DNS}" == "1" ]; then
@@ -411,3 +414,4 @@ if diff -q "${bak:-}" "$conf" 2>/dev/null; then
 fi
 
 echo "Successfully generated config"
+
