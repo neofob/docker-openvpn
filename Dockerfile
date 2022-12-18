@@ -1,7 +1,7 @@
 # Original credit: https://github.com/jpetazzo/dockvpn
 
 # Smallest base image
-FROM alpine:3.13.6
+FROM alpine:3.17
 
 LABEL maintainer="Kyle Manna <kyle@kylemanna.com>"
 
@@ -14,7 +14,6 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 # Needed by scripts
 ENV OPENVPN=/etc/openvpn
 ENV EASYRSA=/usr/share/easy-rsa \
-    EASYRSA_CRL_DAYS=3650 \
     EASYRSA_PKI=$OPENVPN/pki
 
 # Prevents refused client connection because of an expired CRL
