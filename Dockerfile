@@ -17,12 +17,12 @@ ENV EASYRSA=/usr/share/easy-rsa \
     EASYRSA_PKI=$OPENVPN/pki
 
 # Prevents refused client connection because of an expired CRL
-ENV EASYRSA_CRL_DAYS 1460
+ENV EASYRSA_CRL_DAYS=1460
 
 # Need to set this with new easyrsa if you want it a bit longer
 # than 825 days
 # https://github.com/OpenVPN/easy-rsa/issues/333
-ENV EASYRSA_CERT_EXPIRE 1460
+ENV EASYRSA_CERT_EXPIRE=1460
 
 VOLUME ["/etc/openvpn"]
 
