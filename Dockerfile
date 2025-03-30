@@ -21,4 +21,7 @@ EXPOSE 1194/udp
 
 CMD ["ovpn_run"]
 
+ADD ./bin /usr/local/bin
+RUN chmod a+x /usr/local/bin/*
+
 COPY ./otp/openvpn /etc/pam.d/
