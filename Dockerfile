@@ -8,11 +8,11 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
-ENV OPENVPN=/etc/openvpn \
-    EASYRSA=/usr/share/easy-rsa \
-    EASYRSA_PKI=$OPENVPN/pki \
-    EASYRSA_CRL_DAYS=1460 \
-    EASYRSA_CERT_EXPIRE=1460
+ENV OPENVPN=/etc/openvpn
+ENV EASYRSA=/usr/share/easy-rsa
+ENV EASYRSA_PKI=$OPENVPN/pki
+ENV EASYRSA_CRL_DAYS=1460
+ENV EASYRSA_CERT_EXPIRE=1460
 
 VOLUME ["/etc/openvpn"]
 
