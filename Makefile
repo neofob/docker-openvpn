@@ -2,7 +2,7 @@
 #
 # __author__: tuan t. pham
 
-NEOFOB_BRANCH ?=3.23
+NEOFOB_BRANCH ?=debian
 DOCKER_NAME ?=neofob/openvpn
 DOCKER_TAG ?=$(NEOFOB_BRANCH)
 
