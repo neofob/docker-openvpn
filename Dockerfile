@@ -1,6 +1,6 @@
 # Original credit: https://github.com/jpetazzo/dockvpn
 
-FROM alpine:3.21
+FROM alpine:3.23
 LABEL maintainer="Kyle Manna <kyle@kylemanna.com>"
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
