@@ -10,6 +10,7 @@ RUN apt-get update && \
         openvpn \
         openssl \
         iptables \
+        iproute2 \
         bash \
         easy-rsa \
         libpam-google-authenticator \
