@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 if [ -z "$OPENVPN" ]; then
     export OPENVPN="$PWD"
