@@ -25,3 +25,7 @@ ADD ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 
 COPY ./otp/openvpn /etc/pam.d/
+
+# Copy up/down scripts to /etc/openvpn for OpenVPN config
+COPY ./bin/up.sh /etc/openvpn/
+COPY ./bin/down.sh /etc/openvpn/

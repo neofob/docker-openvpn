@@ -14,7 +14,8 @@ RUN apt-get update && \
         bash \
         easy-rsa \
         libpam-google-authenticator \
-        pamtester && \
+        pamtester \
+        resolvconf && \
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -36,3 +37,7 @@ ADD ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 
 COPY ./otp/openvpn /etc/pam.d/
+
+# Copy update-resolv-conf script to /etc/openvpn for OpenVPN up/down hooks
+COPY ./bin/update-resolv-conf /etc/openvpn/
+RUN chmod a+x /etc/openvpn/update-resolv-conf
