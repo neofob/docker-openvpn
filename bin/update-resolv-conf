@@ -15,9 +15,10 @@
 #     foreign_option_3='dhcp-option DOMAIN be.bnc.ch'
 #
 
-if [ ! -x /sbin/resolvconf ] ; then
+RESOLVCONF=/sbin/resolvconf
+if [ ! -x "$RESOLVCONF" ] ; then
     logger "[OpenVPN:update-resolve-conf] missing binary /sbin/resolvconf";
-    exit 0;
+    RESOLVCONF="";
 fi
 
 [ "$script_type" ] || exit 0
@@ -54,10 +55,16 @@ case "$script_type" in
         	R="${R}nameserver $NS
 "
 	done
-	echo -n "$R" | /sbin/resolvconf -a "${dev}.openvpn"
+	if [ -n "$RESOLVCONF" ]; then
+		echo -n "$R" | "$RESOLVCONF" -a "${dev}.openvpn"
+	else
+		echo -n "$R" > /etc/resolv.conf
+	fi
 	;;
   down)
-	/sbin/resolvconf -d "${dev}.openvpn"
+	if [ -n "$RESOLVCONF" ]; then
+		"$RESOLVCONF" -d "${dev}.openvpn"
+	fi
 	;;
 esac
 

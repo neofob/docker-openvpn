@@ -26,6 +26,6 @@ RUN chmod a+x /usr/local/bin/*
 
 COPY ./otp/openvpn /etc/pam.d/
 
-# Copy up/down scripts to /etc/openvpn for OpenVPN config
-COPY ./bin/up.sh /etc/openvpn/
-COPY ./bin/down.sh /etc/openvpn/
+# Copy update-resolv-conf script to /etc/openvpn for OpenVPN up/down hooks
+COPY ./bin/update-resolv-conf /etc/openvpn/
+RUN chmod a+x /etc/openvpn/update-resolv-conf
