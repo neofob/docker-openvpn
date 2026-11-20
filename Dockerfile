@@ -14,8 +14,7 @@ RUN apt-get update && \
         bash \
         easy-rsa \
         libpam-google-authenticator \
-        pamtester \
-        resolvconf && \
+        pamtester && \
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
